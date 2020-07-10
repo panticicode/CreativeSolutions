@@ -39,6 +39,12 @@ $(window).on('load', () => {
     marker.addListener('click', () => {
 	    infowindow.open(map, marker)
 	})
+	//Resize Function for Google Maps
+	google.maps.event.addDomListener(window, 'resize', () => {
+		let center = map.getCenter()
+		google.maps.event.trigger(map, 'resize')
+		map.setCenter(center)
+	})
 	/**Navigation Bar**/
 	let showHide = () => {
 		if($(window).scrollTop() > 50){
@@ -56,6 +62,12 @@ $(window).on('load', () => {
 	$(window).scroll(() => {
 	    showHide()
 	})
+	/**Animation on Scroll**/
+	$("#home #head-1").addClass("animate__animated animate__flipInX")
+	$("#home #head-2").addClass("animate__animated animate__lightSpeedInLeft")
+	$("#home #text").addClass("animate__animated animate__zoomIn")
+	$("#home #content-btn").addClass("animate__animated animate__zoomIn")
+	$("#home #arrow-down i").addClass("animate__animated animate__fadeInDown animate__infinite")
 })
 $(() => {
 	/**Smoot Scroll**/
@@ -97,7 +109,7 @@ $(() => {
 		$('.progress-bar').each(function(){
 			$(this).animate({
 				width: $(this).attr('aria-valuenow') + '%'
-			}, 1000)
+			}, 2000)
 		})
 		this.destroy()
 	}, {
@@ -165,11 +177,43 @@ $(() => {
 		navText: [
 			'<i class="las la-caret-square-left"></i>',
 			'<i class="las la-caret-square-right"></i>'
-		]
+		],
+		responsive : {
+		    // breakpoint from 0 up
+		    0 : {
+		        items : 2
+		    },
+		    // breakpoint from 480 up
+		    480 : {
+		        items : 3
+		    },
+		    // breakpoint from 768 up
+		    768 : {
+		        items : 6
+		    }
+		}
 	})
-	if($(window).width() >= 768 && $(window).width() <= 991){
+	if($(window).width() < 992){
 	   $("footer a").addClass("md-hidden")
 	}
+	/**Mobile Menu**/
+	if($(window).width() > 767){
+	   $("#mobile-nav").hide()
+	}
+	//show mobile nav
+	$("#mobile-nav-open-btn").click((evt) => {
+		$(evt.currentTarget).hide()
+		$("#mobile-nav-close-btn").show()
+		$("#mobile-nav").css("height", "100%")
+	})
+	//hide mobile nav
+	$("#mobile-nav-close-btn, #mobile-nav a").click(() => {
+		$("#mobile-nav-close-btn").hide()
+		$("#mobile-nav-open-btn").show()
+		$("#mobile-nav").css("height", "0")
+	})
+	/**Animation on Scroll**/
+	new WOW().init()
 })
 
 

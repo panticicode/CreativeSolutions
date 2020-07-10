@@ -346,9 +346,16 @@ ul.navbar-nav > li > a:hover {
 .about-item:hover i {
 	transform: translateY(-15px);
 }
-.about-item, .about-item i, .about-item hr {
+.about-item, 
+.about-item i, 
+.about-item hr {
 	-webkit-transition: all 700ms ease-in-out;
 	transition: all 700ms ease-in-out;
+}
+.about-item p,
+.about-item h3 {
+	-webkit-transition: all 700ms linear;
+	transition: all 700ms linear;
 }
 #team span {
 	font-size: 32px;
@@ -506,7 +513,6 @@ ul.social-list li:nth-child(3) a:hover {
 }
 #services-tabs ul {
 	margin-bottom: 20px;
-
 }
 #services-tabs ul li {
 	padding: 5px 30px
@@ -588,8 +594,8 @@ ul.social-list li:nth-child(3) a:hover {
 #isotope-filters button span {
 	display: block;
 	padding-bottom:  5px;
-	-webkit-transition: border-color .4s easy-in-out;
-	transition: border-color .4s easy-in-out;
+	-webkit-transition: border-color .4s;
+	transition: border-color .4s;
 }
 #isotope-filters button.active span {
 	color:#6872ab;
@@ -712,7 +718,7 @@ ul.social-list li:nth-child(3) a:hover {
 }
 .testimonial .stars {
 	font-size: 20px;
-	margin: 20px 0 10px 0;
+	/*margin: 20px 0 10px 0;*/
 }
 .testimonial p {
 	line-height: normal;
@@ -816,6 +822,7 @@ ul.social-list li:nth-child(3) a:hover {
 .price-table .btn-grey {
 	width: 96%;
 	padding: 12px;
+	margin-bottom: 20px;
 }
 .price-table:hover .btn-grey{
 	background-color: #dcd5cc;
@@ -1058,4 +1065,27 @@ h3#logo a {
 }
 .md-hidden {
 	display: none !important;
+}
+/**Animation**/
+#home #head-1,
+#home #head-2,
+#home #text,
+#home #content-btn,
+#home #arrow-down {
+	animation-duration: 1.5s;
+}
+#home #head-1 {
+	animation-delay: 0.5s;
+}
+#home #head-2 {
+	animation-delay: 0.7s;
+}
+#home #text {
+	animation-delay: 1s;
+}
+#home #content-btn {
+	animation-delay: 1.5s;
+}
+#home #arrow-down i {
+	animation-delay: 2s;
 }
